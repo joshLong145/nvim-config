@@ -67,6 +67,16 @@ use({
     require("barbecue").setup()
   end,
 })
+use {
+  "akinsho/toggleterm.nvim",
+  config = function()
+    require("toggleterm").setup()
+  end
+}
+use {'romgrk/barbar.nvim', requires = {
+  'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+  'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+}}
 use('neovim/nvim-lspconfig')
 use('simrat39/rust-tools.nvim')
 use('nvim-lua/plenary.nvim')
