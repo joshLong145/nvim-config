@@ -57,6 +57,16 @@ use {
     require"startup".setup()
   end
 }
+use({
+  "utilyre/barbecue.nvim",
+  requires = {
+    "SmiteshP/nvim-navic",
+    "nvim-tree/nvim-web-devicons", -- optional dependency
+  },
+  config = function()
+    require("barbecue").setup()
+  end,
+})
 use('neovim/nvim-lspconfig')
 use('simrat39/rust-tools.nvim')
 use('nvim-lua/plenary.nvim')
