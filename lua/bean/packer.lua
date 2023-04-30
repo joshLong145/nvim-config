@@ -50,9 +50,23 @@ use {
     require("nvim-tree").setup {}
   end
 }
+use {
+  "startup-nvim/startup.nvim",
+  requires = {"nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim"},
+  config = function()
+    require"startup".setup()
+  end
+}
 use('neovim/nvim-lspconfig')
 use('simrat39/rust-tools.nvim')
 use('nvim-lua/plenary.nvim')
 use('mfussenegger/nvim-dap')
-
+use('f-person/git-blame.nvim')
+use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
+use {
+  'gelguy/wilder.nvim',
+  config = function()
+    -- config goes here
+  end,
+}
 end)
