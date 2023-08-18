@@ -12,15 +12,13 @@ return require('packer').startup(function(use)
        -- or                            , branch = '0.1.x',
        requires = { {'nvim-lua/plenary.nvim'} }
   }
-
-  use({ 'rose-pine/neovim', as = 'rose-pine', config = function() vim.cmd('colorscheme rose-pine') end})
-
-
+ 
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
   use('mbbill/undotree')
   use('tpope/vim-fugitive')
+  use ('ray-x/aurora')
   use {
   'VonHeikemen/lsp-zero.nvim',
   branch = 'v2.x',
@@ -77,6 +75,7 @@ use {'romgrk/barbar.nvim', requires = {
   'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
   'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
 }}
+use('beauwilliams/statusline.lua')
 use('neovim/nvim-lspconfig')
 use('simrat39/rust-tools.nvim')
 use('nvim-lua/plenary.nvim')
@@ -89,4 +88,37 @@ use {
     -- config goes here
   end,
 }
+use {
+  "microsoft/vscode-js-debug",
+  opt = true,
+  run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
+}
+use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
+use({
+  'nvim-neotest/neotest',
+  requires = {
+    'haydenmeade/neotest-jest',
+  },
+  config = function()
+    require('neotest').setup({
+      adapters = {
+        require('neotest-jest')({
+          jestCommand = "npx jest --watch",
+          jestConfigFile = "jest.config.ts",
+          env = { CI = true },
+          cwd = function(path)
+            return vim.fn.getcwd()
+          end,
+        }),
+      }
+    })
+  end
+})
+use({
+    "kdheepak/lazygit.nvim",
+    -- optional for floating window border decoration
+    requires = {
+        "nvim-lua/plenary.nvim",
+    },
+})
 end)

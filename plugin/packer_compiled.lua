@@ -79,10 +79,36 @@ _G.packer_plugins = {
     path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
   },
+  ["barbar.nvim"] = {
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/barbar.nvim",
+    url = "https://github.com/romgrk/barbar.nvim"
+  },
+  ["barbecue.nvim"] = {
+    config = { "\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rbarbecue\frequire\0" },
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/barbecue.nvim",
+    url = "https://github.com/utilyre/barbecue.nvim"
+  },
   ["cmp-nvim-lsp"] = {
     loaded = true,
     path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/cmp-nvim-lsp",
     url = "https://github.com/hrsh7th/cmp-nvim-lsp"
+  },
+  ["code_runner.nvim"] = {
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/code_runner.nvim",
+    url = "https://github.com/CRAG666/code_runner.nvim"
+  },
+  ["git-blame.nvim"] = {
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/git-blame.nvim",
+    url = "https://github.com/f-person/git-blame.nvim"
+  },
+  ["gitsigns.nvim"] = {
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/gitsigns.nvim",
+    url = "https://github.com/lewis6991/gitsigns.nvim"
   },
   harpoon = {
     loaded = true,
@@ -119,6 +145,11 @@ _G.packer_plugins = {
     path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig"
   },
+  ["nvim-navic"] = {
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/nvim-navic",
+    url = "https://github.com/SmiteshP/nvim-navic"
+  },
   ["nvim-tree.lua"] = {
     config = { "\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0" },
     loaded = true,
@@ -150,21 +181,37 @@ _G.packer_plugins = {
     path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/plenary.nvim",
     url = "https://github.com/nvim-lua/plenary.nvim"
   },
-  ["rose-pine"] = {
-    config = { "\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0" },
-    loaded = true,
-    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/rose-pine",
-    url = "https://github.com/rose-pine/neovim"
-  },
   ["rust-tools.nvim"] = {
     loaded = true,
     path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/rust-tools.nvim",
     url = "https://github.com/simrat39/rust-tools.nvim"
   },
+  ["shades-of-purple.vim"] = {
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/shades-of-purple.vim",
+    url = "https://github.com/Rigellute/shades-of-purple.vim"
+  },
+  ["startup.nvim"] = {
+    config = { "\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fstartup\frequire\0" },
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/startup.nvim",
+    url = "https://github.com/startup-nvim/startup.nvim"
+  },
+  ["statusline.lua"] = {
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/statusline.lua",
+    url = "https://github.com/beauwilliams/statusline.lua"
+  },
   ["telescope.nvim"] = {
     loaded = true,
     path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/telescope.nvim",
     url = "https://github.com/nvim-telescope/telescope.nvim"
+  },
+  ["toggleterm.nvim"] = {
+    config = { "\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0" },
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/toggleterm.nvim",
+    url = "https://github.com/akinsho/toggleterm.nvim"
   },
   undotree = {
     loaded = true,
@@ -175,18 +222,36 @@ _G.packer_plugins = {
     loaded = true,
     path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/vim-fugitive",
     url = "https://github.com/tpope/vim-fugitive"
+  },
+  ["wilder.nvim"] = {
+    config = { "\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0" },
+    loaded = true,
+    path = "/Users/joshlong/.local/share/nvim/site/pack/packer/start/wilder.nvim",
+    url = "https://github.com/gelguy/wilder.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: barbecue.nvim
+time([[Config for barbecue.nvim]], true)
+try_loadstring("\27LJ\2\n6\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\rbarbecue\frequire\0", "config", "barbecue.nvim")
+time([[Config for barbecue.nvim]], false)
+-- Config for: startup.nvim
+time([[Config for startup.nvim]], true)
+try_loadstring("\27LJ\2\n5\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\fstartup\frequire\0", "config", "startup.nvim")
+time([[Config for startup.nvim]], false)
+-- Config for: toggleterm.nvim
+time([[Config for toggleterm.nvim]], true)
+try_loadstring("\27LJ\2\n8\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\15toggleterm\frequire\0", "config", "toggleterm.nvim")
+time([[Config for toggleterm.nvim]], false)
+-- Config for: wilder.nvim
+time([[Config for wilder.nvim]], true)
+try_loadstring("\27LJ\2\n\v\0\0\1\0\0\0\1K\0\1\0\0", "config", "wilder.nvim")
+time([[Config for wilder.nvim]], false)
 -- Config for: nvim-tree.lua
 time([[Config for nvim-tree.lua]], true)
 try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\14nvim-tree\frequire\0", "config", "nvim-tree.lua")
 time([[Config for nvim-tree.lua]], false)
--- Config for: rose-pine
-time([[Config for rose-pine]], true)
-try_loadstring("\27LJ\2\n9\0\0\3\0\3\0\0056\0\0\0009\0\1\0'\2\2\0B\0\2\1K\0\1\0\26colorscheme rose-pine\bcmd\bvim\0", "config", "rose-pine")
-time([[Config for rose-pine]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
