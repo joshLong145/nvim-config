@@ -28,3 +28,4 @@ for _, language in ipairs({ "typescript", "javascript" }) do
 end
 
 vim.cmd('colorscheme aurora')
+vim.keymap.set("n", "C-r>", function() require("neotest").run.run() end)
