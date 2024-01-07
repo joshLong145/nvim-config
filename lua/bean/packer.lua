@@ -121,4 +121,7 @@ use({
         "nvim-lua/plenary.nvim",
     },
 })
+
+use('sigmasd/deno-nvim')
 end)
+

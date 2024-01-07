@@ -21,11 +21,5 @@ require("dap-vscode-js").setup({
   -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
 })
 
-for _, language in ipairs({ "typescript", "javascript" }) do
-  require("dap").configurations[language] = {
-    ... -- see below
-  }
-end
 
 vim.cmd('colorscheme aurora')
-vim.keymap.set("n", "C-r>", function() require("neotest").run.run() end)
