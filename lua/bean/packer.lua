@@ -79,7 +79,6 @@ use('beauwilliams/statusline.lua')
 use('neovim/nvim-lspconfig')
 use('simrat39/rust-tools.nvim')
 use('nvim-lua/plenary.nvim')
-use('mfussenegger/nvim-dap')
 use('f-person/git-blame.nvim')
 use { 'CRAG666/code_runner.nvim', requires = 'nvim-lua/plenary.nvim' }
 use {
@@ -88,32 +87,7 @@ use {
     -- config goes here
   end,
 }
-use {
-  "microsoft/vscode-js-debug",
-  opt = true,
-  run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out" 
-}
-use { "mxsdev/nvim-dap-vscode-js", requires = {"mfussenegger/nvim-dap"} }
-use({
-  'nvim-neotest/neotest',
-  requires = {
-    'haydenmeade/neotest-jest',
-  },
-  config = function()
-    require('neotest').setup({
-      adapters = {
-        require('neotest-jest')({
-          jestCommand = "npx jest --watch",
-          jestConfigFile = "jest.config.ts",
-          env = { CI = true },
-          cwd = function(path)
-            return vim.fn.getcwd()
-          end,
-        }),
-      }
-    })
-  end
-})
+use('sainnhe/everforest')
 use({
     "kdheepak/lazygit.nvim",
     -- optional for floating window border decoration
@@ -121,4 +95,14 @@ use({
         "nvim-lua/plenary.nvim",
     },
 })
+
+use { 'rbong/vim-flog', requires = 'tpope/vim-fugitive' }
+
+
+use {
+    "williamboman/mason.nvim",
+    "mfussenegger/nvim-dap",
+    "jay-babu/mason-nvim-dap.nvim",
+    use { "rcarriga/nvim-dap-ui", requires = {"nvim-neotest/nvim-nio"} }
+}
 end)

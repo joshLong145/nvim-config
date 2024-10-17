@@ -1,7 +1,7 @@
 local rt = require("rust-tools")
 
 rt.setup({
-  server = {
+	server = {
     on_attach = function(_, bufnr)
       -- Hover actions
       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
@@ -11,21 +11,57 @@ rt.setup({
   },
 })
 
-require("dap-vscode-js").setup({
-  -- node_path = "node", -- Path of node executable. Defaults to $NODE_PATH, and then "node"
-  -- debugger_path = "(runtimedir)/site/pack/packer/opt/vscode-js-debug", -- Path to vscode-js-debug installation.
-  -- debugger_cmd = { "js-debug-adapter" }, -- Command to use to launch the debug server. Takes precedence over `node_path` and `debugger_path`.
-  adapters = { 'pwa-node', 'pwa-chrome', 'pwa-msedge', 'node-terminal', 'pwa-extensionHost' }, -- which adapters to register in nvim-dap
-  -- log_file_path = "(stdpath cache)/dap_vscode_js.log" -- Path for file logging
-  -- log_file_level = false -- Logging level for output to file. Set to false to disable file logging.
-  -- log_console_level = vim.log.levels.ERROR -- Logging level for output to console. Set to false to disable console output.
+-- flog keymap
+vim.keymap.set("n", "<C-f>", ":Flog<CR>", {
+  noremap = true
 })
 
-for _, language in ipairs({ "typescript", "javascript" }) do
-  require("dap").configurations[language] = {
-    ... -- see below
-  }
+-- tab settings
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.bo.softtabstop = 2
+
+-- nvim dap todo: move this
+require("mason-nvim-dap").setup({
+    ensure_installed = {'stylua', 'jq'},
+    handlers = {
+        function(config)
+          -- all sources with no handler get passed here
+
+          -- Keep original functionality
+          require('mason-nvim-dap').default_setup(config)
+        end,
+        node2 = function(config)
+            config.adapters = {
+              type = 'executable';
+              command = 'node',
+              args = { vim.fn.stdpath("data") .. '/mason/packages/node-debug2-adapter/out/src/nodeDebug.js' };
+            }
+            require('mason-nvim-dap').default_setup(config) -- don't forget this!
+        end,
+    },
+})
+
+local dap, dapui = require("dap"), require("dapui")
+dapui.setup()
+dap.listeners.before.attach.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.launch.dapui_config = function()
+  dapui.open()
+end
+dap.listeners.before.event_terminated.dapui_config = function()
+  dapui.close()
+end
+dap.listeners.before.event_exited.dapui_config = function()
+  dapui.close()
 end
 
-vim.cmd('colorscheme aurora')
-vim.keymap.set("n", "C-r>", function() require("neotest").run.run() end)
+--lazygit
+vim.keymap.set("n", "<Leader>ll", ":LazyGit<CR>", {
+  noremap = true
+});
+
+-- colorscheme
+vim.cmd('colorscheme everforest')
