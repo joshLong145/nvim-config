@@ -2,13 +2,25 @@ local rt = require("rust-tools")
 
 rt.setup({
 	server = {
-    on_attach = function(_, bufnr)
+    on_attach = function(client, bufnr)
       -- Hover actions
       vim.keymap.set("n", "<C-space>", rt.hover_actions.hover_actions, { buffer = bufnr })
       -- Code action groups
       vim.keymap.set("n", "<Leader>a", rt.code_action_group.code_action_group, { buffer = bufnr })
-    end,
-  },
+      
+      local augroup_id = vim.api.nvim_create_augroup("LspOnAttach", {})
+
+
+      -- Fixes tree sitter issue where an error will occure when attempting to highlight using certain
+      -- LSPs see ref: https://www.reddit.com/r/neovim/comments/100ng0t/comment/j2k731r/
+      vim.api.nvim_create_autocmd("BufWritePre", {
+        group = augroup_id,
+        buffer = bufnr,
+        callback = function() vim.lsp.buf.format { async = false } end,
+        desc = "Format file on write",
+      })
+      end,
+    },
 })
 
 -- flog keymap
@@ -16,11 +28,6 @@ vim.keymap.set("n", "<C-f>", ":Flog<CR>", {
   noremap = true
 })
 
--- tab settings
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
-vim.bo.softtabstop = 2
 
 -- nvim dap todo: move this
 require("mason-nvim-dap").setup({
@@ -62,6 +69,12 @@ end
 vim.keymap.set("n", "<Leader>ll", ":LazyGit<CR>", {
   noremap = true
 });
+
+-- tab settings
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+vim.bo.softtabstop = 2
 
 -- colorscheme
 vim.cmd('colorscheme everforest')
